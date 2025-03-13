@@ -7,7 +7,7 @@ export const config = {
     // injects 5 user every second for 10 seconds  
     name: "constantArrival",
     duration: 10, 
-    arrivalRate: 5,
+    arrivalRate: 10,
     },
     // {
     // // Pause
