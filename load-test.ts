@@ -2,12 +2,13 @@ import { helloWorld } from "./galani";
 
 
 export const config = {
-  target: 'https://galaniprojects.de/eng.html',
+  target: 'https://inforos.c3c.lcl/infor/b3ef72f0-f3c0-4199-9350-8393d11584fc',
   phases: [{
     // injects 5 user every second for 10 seconds  
     name: "constantArrival",
-    duration: 10, 
-    arrivalRate: 10,
+    duration: 3, 
+    arrivalRate: 100,
+    maxVusers: 200
     },
     // {
     // // Pause
