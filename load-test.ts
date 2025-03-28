@@ -30,7 +30,7 @@ export const config = {
   ],
   engines: {
     playwright: {
-      launchOptions: { headless: true },
+      launchOptions: { headless: false },
     },
   },
 };
