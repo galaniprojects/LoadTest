@@ -4,10 +4,10 @@ export const config = {
   target: "https://businesscentral.dynamics.com/",
   phases: [
     {
-      name: "1000-users-at-once",
-      arrivalCount: 1000,
+      name: "100-users-at-once",
+      arrivalCount: 100,
       duration: 1,
-      maxVusers: 1000,
+      maxVusers: 100,
       ensure: false,
     },
     //   {
