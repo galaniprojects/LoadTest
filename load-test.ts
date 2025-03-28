@@ -1,13 +1,14 @@
-import { orderPurchase } from "./orderPurchase";
+import orderPurchase from "./orderPurchase";
 
 export const config = {
   target: "https://businesscentral.dynamics.com/",
   phases: [
     {
-      name: "gradual-load",
-      arrivalRate: 50, // 50 users/sec
-      duration: 20, // for 20 seconds → 50 * 20 = 1000
+      name: "1000-users-at-once",
+      arrivalCount: 1000,
+      duration: 1,
       maxVusers: 1000,
+      ensure: false,
     },
     //   {
     //     name: "ramp-up",
@@ -29,7 +30,7 @@ export const config = {
   ],
   engines: {
     playwright: {
-      //launchOptions: { headless: false },
+      launchOptions: { headless: true },
     },
   },
 };

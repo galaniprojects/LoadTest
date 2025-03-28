@@ -104,31 +104,33 @@ const orderPurchase = async (page: Page) => {
 
   const status = iframe.getByRole("textbox", { name: "Status" });
   const statusOpen = await status.textContent();
+  await expect(statusOpen).toBe("Offen");
 
   const permissionButton = iframe.locator(
     'button[aria-label="Genehmigung anfordern"]'
   );
-
+  await expect(permissionButton).toBeVisible();
   await permissionButton.click();
 
   const sendPermissionButton = iframe.locator(
     'button[aria-label="Genehmigungsanforderung senden"]'
   );
-
+  await expect(sendPermissionButton).toBeVisible();
   await sendPermissionButton.click();
 
   const startButton = iframe.getByRole("menuitem", { name: "Start" });
-
+  await expect(startButton).toBeVisible();
   await startButton.click();
-  await page.waitForTimeout(1000);
+
   const statusRelease = await status.textContent();
+  await expect(statusRelease).toBe("Freigegeben");
 
   const postButton = iframe.getByRole("button", {
     name: "Buchen...",
     exact: true,
   });
   await postButton.click();
-  await page.waitForTimeout(1000);
+
   await okButton.click();
 
   const yesButton = iframe.getByRole("button", { name: "Ja" });
@@ -137,6 +139,10 @@ const orderPurchase = async (page: Page) => {
   const postedPurchasePage = iframe.getByText("Geb. Einkaufsrechnung", {
     exact: true,
   });
+  await expect(postedPurchasePage).toBeVisible();
+
+  const vendorInvoiceNumber = iframe.getByLabel(invoiceNumber);
+  await expect(vendorInvoiceNumber).toHaveText(invoiceNumber);
 };
 
 export default orderPurchase;
